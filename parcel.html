@@ -1,0 +1,98 @@
+<!DOCTYPE html><html>
+<head>
+    <title>Parcel Booking - Captain</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    body{
+        background:#F5F0E6;
+    }
+
+    .header{
+        background:#6F4E37;
+        color:white;
+        padding:20px;
+        text-align:center;
+        border-bottom-left-radius:25px;
+        border-bottom-right-radius:25px;
+    }
+
+    .booking-box{
+        background:white;
+        margin-top:20px;
+        padding:20px;
+        border-radius:20px;
+        box-shadow:0px 2px 10px rgba(0,0,0,0.1);
+
+        width:50%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .btn-captain{
+        background:#6F4E37;
+        color:white;
+        width:100%;
+    }
+
+    .btn-captain:hover{
+        background:#4A2C2A;
+        color:white;
+    }
+</style>
+
+</head><body><div class="header">
+    <h2>📦 Parcel Booking</h2>
+    <p>Fast & Secure Parcel Delivery</p>
+</div><div class="container"><div class="booking-box">
+
+    <label>Pickup Location</label>
+    <input type="text"
+           id="pickup"
+           class="form-control mb-3"
+           placeholder="Enter Pickup Location">
+
+    <label>Delivery Location</label>
+    <input type="text"
+           id="drop"
+           class="form-control mb-3"
+           placeholder="Enter Delivery Location">
+
+    <label>Parcel Weight (KG)</label>
+    <input type="number"
+           id="weight"
+           class="form-control mb-3"
+           placeholder="Enter Parcel Weight">
+
+    <button class="btn btn-captain"
+            onclick="calculateFare()">
+        Calculate Charge
+    </button>
+
+    <h3 class="mt-4 text-center" id="result"></h3>
+
+</div>
+
+</div><script>
+
+function calculateFare(){
+
+    let pickup = document.getElementById("pickup").value;
+    let drop = document.getElementById("drop").value;
+    let weight = document.getElementById("weight").value;
+
+    if(pickup=="" || drop=="" || weight==""){
+
+        alert("Please fill all fields");
+        return;
+    }
+
+    let charge = weight * 20;
+
+    document.getElementById("result").innerHTML =
+    "Estimated Parcel Charge: ₹" + charge +
+    "<br><br>" +
+    "<button class='btn btn-success' onclick=\"window.location.href='booking-success.html'\">Book Parcel</button>";
+}
+
+</script></body>
+</html>
